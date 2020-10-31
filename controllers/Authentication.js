@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const User = require("../models/User");
-const token=require('../services/Token')
-exports.register=(req,res,next)=>{
+const tokeng=require('../services/Token')
+exports.register= (req,res,next)=>{
     console.log('req.body az register Authentication', req.body);
     const { fristName,
           lastName, 
@@ -28,10 +28,11 @@ exports.register=(req,res,next)=>{
                 ssn:ssn,
                 phoneNumber:phoneNumber,
                 email:email,
-                level:'normal'
+                level:'normal',
+                guestToken:token
             });
-            user.save().then(userSaved => res.json({ token: token.generateToken(userSaved), user: userSaved }));
+            
+            user.save().then(userSaved => {console.log(userSaved);res.json({ token: tokeng.generateToken(userSaved), user: userSaved })});
         } 
-        
     });
 }

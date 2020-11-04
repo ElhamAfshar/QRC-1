@@ -1,7 +1,9 @@
 const jwt = require("jwt-simple");
-
-exports.generateToken=(user) =>{
-    const allan = new Date().getTime();
-    return jwt.encode({ sub: user.id, iat: allan }, config.secret);
+const config=require("../config")
+exports.generateToken=(_id) =>{
+    const know = new Date().getTime();
+    return jwt.encode({ sub: _id, iat: know }, config.SecretKey);
 }
+
+
   

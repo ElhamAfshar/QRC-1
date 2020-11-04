@@ -23,8 +23,7 @@ const userSchema = new Schema({
           default: ["guest"]
         }
     ],
-    token:String,
-    guestToken:String
+    guestUserId:String
     
 
 },

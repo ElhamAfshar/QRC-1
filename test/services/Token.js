@@ -6,5 +6,9 @@ exports.generateToken=(_id) =>{
 }
 
 exports.decodeToken=(token)=>{
-    return jwt.decode(token,config.SecretKey);
+    console.log("aaaaa");
+    const test=jwt.decode(token,config.SecretKey);
+    console.log("bbbb");
+    console.log(test);
+    return test;
 }

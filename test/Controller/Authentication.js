@@ -20,6 +20,7 @@ const genResp = (_id , code , res) => {
 
 
 exports.reqcode = async(req, res) => {
+    console.log("enter");
     const {firstname , lastname , phoneNumber} =req.body
     let phone = pnumber.toEnglishDigits(phoneNumber);
     phone = Tell.phoneMobile(phoneNumber);

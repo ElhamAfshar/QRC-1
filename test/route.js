@@ -25,6 +25,17 @@ fastify.addHook('preHandler',(req,res,done)=>{
   done();
 })
 
+fastify.addHook("onRequest",(req,res,done)=>{
+  console.log("@_o_@3333");
+  console.log(req.headers['token']);
+  if (req.headers['token']){
+    const t=token.decodeToken(req.headers['token']);
+    t? done() : res.json("error");
+  }
+  done();
+})
+
+
 fastify.post('/get-user',user.getUser)
 
 
